@@ -16,7 +16,18 @@ const textBottomInput = document.querySelector('input[name="textbottom"]');
 const form = document.getElementById('meme-form'); 
 const memeList = document.querySelector('.meme-list'); 
 
-// initialize all functions
+// // initialize all functions
+// // initialize function for all elements 
+// function createElement(type, text, className) {
+//     const element = docuemtn.createElement(type); 
+//     element.setAttribute('src', url); 
+//     element.classList.add(className); 
+//     if(input.value) {
+
+//     }
+//     return element; 
+// }
+
 function createMeme(url) {
     // create element -> img
     const img = document.createElement('img'); 
@@ -26,19 +37,19 @@ function createMeme(url) {
     return img
 }
 
-function topText(top) {
+function topText(topText) {
     // create element -> div
     const topDivText = document.createElement('div'); 
-    topDivText.innerText = top; 
+    topDivText.innerText = topText; 
     topDivText.classList.add('text-top'); 
     // return topH3
     return topDivText; 
 }
 
-function bottomText(bottom) {
+function bottomText(bottomText) {
     // create element -> div
     const bottomDivText = document.createElement('div'); 
-    bottomDivText.innerText = bottom; 
+    bottomDivText.innerText = bottomText; 
     bottomDivText.classList.add('text-bottom'); 
     // return bottomH3
     return bottomDivText; 
