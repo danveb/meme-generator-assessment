@@ -10,9 +10,9 @@ https://images.unsplash.com/photo-1511275539165-cc46b1ee89bf?ixid=MXwxMjA3fDB8MH
 */ 
 
 // initialize all variables 
-const imageInput = document.querySelector('input[name="imageurl"]'); 
-const textTopInput = document.querySelector('input[name="texttop"]'); 
-const textBottomInput = document.querySelector('input[name="textbottom"]'); 
+const imageInput = document.getElementById('imageinput'); 
+const textTopInput = document.getElementById('texttop'); 
+const textBottomInput = document.getElementById('textbottom'); 
 const form = document.getElementById('meme-form'); 
 const memeList = document.querySelector('.meme-list'); 
 
@@ -32,7 +32,10 @@ function createMeme(url) {
     // create element -> img
     const img = document.createElement('img'); 
     img.setAttribute('src', url); 
-    img.classList.add('meme-img'); 
+    // innerText
+    img.innerText = 'X'; 
+    // classList delete
+    img.classList.add('meme-img', 'delete'); 
     // return img 
     return img
 }
@@ -57,8 +60,6 @@ function bottomText(bottomText) {
 
 // eventListener on form('submit')
 form.addEventListener('submit', function(e) {
-    // console.log('submitted'); 
-
     // create element -> div 
     const newDiv = document.createElement('div'); 
     // class meme
@@ -72,18 +73,18 @@ form.addEventListener('submit', function(e) {
     const textTop = topText(textTopInput.value); 
     const textBottom = bottomText(textBottomInput.value); 
 
-    // create element -> div
-    const deleteDiv = document.createElement('div'); 
-    // class text
-    deleteDiv.classList.add('delete'); 
-    // innerText 
-    deleteDiv.innerText = 'X'; 
+    // // create element -> div
+    // const deleteDiv = document.createElement('div'); 
+    // // class text
+    // deleteDiv.classList.add('delete'); 
+    // // innerText 
+    // deleteDiv.innerText = 'X'; 
 
     // append newMeme to newDiv
     newDiv.appendChild(newMeme); 
     newDiv.appendChild(textTop); 
     newDiv.appendChild(textBottom); 
-    newDiv.appendChild(deleteDiv); 
+    // newDiv.appendChild(deleteDiv); 
 
     // prevent default behavior
     e.preventDefault(); 
@@ -97,7 +98,7 @@ memeList.addEventListener('click', function(e) {
     // initialize lowercase variable target 
     const lowerCaseDivTag = e.target.tagName.toLowerCase(); 
     // if target is img 
-    if(lowerCaseDivTag === 'div') {
+    if(lowerCaseDivTag === 'img') {
         // remove 
         e.target.parentNode.remove(); 
     }
