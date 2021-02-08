@@ -32,8 +32,6 @@ function createMeme(url) {
     // create element -> img
     const img = document.createElement('img'); 
     img.setAttribute('src', url); 
-    // innerText
-    img.innerText = 'X'; 
     // classList delete
     img.classList.add('meme-img', 'delete'); 
     // return img 
@@ -43,8 +41,13 @@ function createMeme(url) {
 function topText(topText) {
     // create element -> div
     const topDivText = document.createElement('div'); 
-    topDivText.innerText = topText; 
     topDivText.classList.add('text-top'); 
+    topDivText.innerText = topText; 
+    // if(textTop.innerText !== '') {
+    //     topDivText.innerText = topText;
+    // } else {
+    //     return topDivText; 
+    // }
     // return topH3
     return topDivText; 
 }
